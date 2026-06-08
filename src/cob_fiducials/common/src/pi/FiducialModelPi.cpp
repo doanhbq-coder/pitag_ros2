@@ -1487,9 +1487,13 @@ unsigned long FiducialModelPi::LoadParameters(std::vector<FiducialPiParameters> 
 				ref_tag.marker_points.push_back(cv::Point2f(0, -float(d_line0_AC)));
 				ref_tag.marker_points.push_back(cv::Point2f(0, -float(d_line0_AB)));
 
-				// Offset
+				// Center model at tag geometric center, then apply offset.
+				// Offset now means "tag center position in object frame" (default 0,0 = axes at tag center).
+				float half_size = float(tag_size) / 2.0f;
 				for(unsigned int j=0; j<ref_tag.marker_points.size(); j++)
 				{
+						ref_tag.marker_points[j].x -= half_size;
+						ref_tag.marker_points[j].y += half_size;
 						ref_tag.marker_points[j].x += pi_tags[i].m_offset.x;
 						ref_tag.marker_points[j].y += pi_tags[i].m_offset.y;
 				}

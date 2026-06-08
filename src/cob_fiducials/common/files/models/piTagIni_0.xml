@@ -9,9 +9,8 @@
                 <CrossRatioLine0 AB="0.40" AC="0.60" />
                 <CrossRatioLine1 AB="0.20" AC="0.80" />
                                 
-                <!-- Offset for native tag corrdinates -->
-                <!-- e.g. position of tag center in object centric coordinate system -->
-                <Offset x="-0.075" y="0.125" />
+                <!-- Offset: position of tag center in object frame (0,0 = axes at tag center) -->
+                <Offset x="0.0" y="0.0" />
                 
                 <!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
                 <SharpnessArea x="-0.01" y="-0.01" width="0.12" height="0.12"/>
@@ -26,9 +25,8 @@
                 <CrossRatioLine0 AB="0.30" AC="0.55" />
                 <CrossRatioLine1 AB="0.25" AC="0.70" />
                                 
-                <!-- Offset for native tag corrdinates -->
-                <!-- e.g. position of tag center in object centric coordinate system -->
-                <Offset x="0.075" y="-0.125" />
+                <!-- Offset: position of tag center in object frame (0,0 = axes at tag center) -->
+                <Offset x="0.0" y="0.0" />
                 <!--Offset x="-0.05" y="0.05" /-->
                 
                 <!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
@@ -44,9 +42,8 @@
                 <CrossRatioLine0 AB="0.25" AC="0.52" />
                 <CrossRatioLine1 AB="0.25" AC="0.62" />
                                 
-                <!-- Offset for native tag corrdinates -->
-                <!-- e.g. position of tag center in object centric coordinate system -->
-                <Offset x="-0.059" y="-0.140" />
+                <!-- Offset: position of tag center in object frame (0,0 = axes at tag center) -->
+                <Offset x="0.0" y="0.0" />
                 
                 <!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->
                 <SharpnessArea x="-0.01" y="-0.01" width="0.12" height="0.12"/>
@@ -61,9 +58,8 @@
                 <CrossRatioLine0 AB="0.45" AC="0.75" />
                 <CrossRatioLine1 AB="0.40" AC="0.74" />
                                 
-                <!-- Offset for native tag corrdinates -->
-                <!-- e.g. position of tag center in object centric coordinate system -->
-                <Offset x="0.059" y="0.140" />
+                <!-- Offset: position of tag center in object frame (0,0 = axes at tag center) -->
+                <Offset x="0.0" y="0.0" />
                 <!--Offset x="-0.05" y="0.05" /-->
                 
                 <!-- Rectangle describing the area for sharpness computation in 2d coordinates within the marker plane with respect to the marker origin -->

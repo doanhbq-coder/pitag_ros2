@@ -1275,6 +1275,26 @@ unsigned long FiducialModelPi::GetPose(cv::Mat& image, std::vector<t_pose>& vec_
 			if (!ProjectionValid(rot_3x3_CfromO, tag_pose.trans, reprojection_matrix, pattern_coords, image_coords))
 				continue;
 
+			// Compute mean reprojection error over all matched points
+			{
+				std::vector<cv::Point2f> projected;
+				cv::Mat dist_coeffs = GetDistortionCoeffs();
+				std::vector<cv::Point3f> obj_pts;
+				for (int r = 0; r < pattern_coords.rows; r++)
+					obj_pts.push_back({pattern_coords.at<float>(r,0),
+					                   pattern_coords.at<float>(r,1),
+					                   pattern_coords.at<float>(r,2)});
+				cv::Mat rvec; cv::Rodrigues(rot_3x3_CfromO, rvec);
+				cv::projectPoints(obj_pts, rvec, tag_pose.trans, GetCameraMatrix(), dist_coeffs, projected);
+				double err = 0.0;
+				for (int r = 0; r < pattern_coords.rows; r++) {
+					float dx = projected[r].x - image_coords.at<float>(r, 0);
+					float dy = projected[r].y - image_coords.at<float>(r, 1);
+					err += std::sqrt(dx*dx + dy*dy);
+				}
+				tag_pose.reproj_error = err / pattern_coords.rows;
+			}
+
 			ApplyExtrinsics(rot_3x3_CfromO, tag_pose.trans);
 			rot_3x3_CfromO.copyTo(tag_pose.rot);
 			vec_pose.push_back(tag_pose);

@@ -436,6 +436,9 @@ private:
                     sharpness_measure, sharpness_calibration_parameter_m_,
                     sharpness_calibration_parameter_n_);
                 fiducial_instance.score = static_cast<float>(sharpness_measure);
+            } else {
+                // Khi không tính sharpness, dùng score để publish reprojection error [pixels]
+                fiducial_instance.score = static_cast<float>(tags_vec[i].reproj_error);
             }
 
             detection_array.detections.push_back(fiducial_instance);

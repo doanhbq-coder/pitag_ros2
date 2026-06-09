@@ -39,6 +39,7 @@ struct t_pose
 
 	cv::Mat rot; ///< rodrigues rotation vector from tag coordinate system to camera coordinate system
 	cv::Mat trans; ///< translation from tag coordinate system to camera coordinate system
+	double reproj_error = 0.0; ///< mean reprojection error over all 12 model points [pixels]
 };
 
 

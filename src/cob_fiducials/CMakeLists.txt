@@ -132,5 +132,10 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
   RENAME yuyv_to_mono8
 )
+install(PROGRAMS
+  ros/scripts/evaluate_accuracy.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME evaluate_accuracy
+)
 
 ament_package()
